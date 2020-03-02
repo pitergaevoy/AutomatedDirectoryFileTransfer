@@ -13,7 +13,7 @@ Transfers them where-ever YOU want! <br>
 AND GUESS WHAT? 
 YOU don't have to do shit.
 
-Setup:
+Setup: <br>
 0. Launch and right-click LUL.icon in system tray
 1. Click "Open Settings"
 2. Choose directory where fileas at
