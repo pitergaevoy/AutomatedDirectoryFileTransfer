@@ -1,7 +1,4 @@
-﻿using System;
-using System.Configuration;
-using System.IO;
-using System.Windows;
+﻿using System.Windows;
 
 namespace DirectoryTransfer.UI
 {
@@ -10,32 +7,31 @@ namespace DirectoryTransfer.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private readonly MainApp _mainApp;
+
+        public MainWindow(MainApp mainApp)
         {
+            _mainApp = mainApp;
             InitializeComponent();
 
-            RunListenDir();
+            _mainApp.StartListen();
         }
 
-        private void RunListenDir()
+        private void OpenMenuItemClicked(object sender, RoutedEventArgs e)
         {
-            const string configPath = "myConfig.json";
+            var settingsView = new Settings(_mainApp.Configuration);
+            settingsView.ShowDialog();
 
-            var configuration = new DirectoryTransfer.Configuration
-            {
-                DirectoryForScan = @"C:\Users\gaevoy\Downloads",
-                DirectoryForTransfer = @"C:\Users\gaevoy\Desktop\CFG",
-                SearchPattern = "*.cfg"
-            };
+            var configuration = settingsView.ViewModel.Configuration;
 
-            if (File.Exists(configPath))
-                configuration = Configuration.GetConfiguration(configPath);
-
-            Configuration.SaveConfiguration(configuration, configPath);
-
-            DirectoryScanner.DirectoryListener(configuration.DirectoryForScan, configuration.SearchPattern, configuration.DirectoryForTransfer);
-
+            _mainApp.Stop();
+            _mainApp.SetParams(configuration);
+            _mainApp.StartListen();
         }
 
+        private void CloseMenuItemClicked(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

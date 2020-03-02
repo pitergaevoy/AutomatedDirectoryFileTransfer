@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -6,19 +7,31 @@ namespace DirectoryTransfer
 {
     public class DirectoryScanner
     {
-        public static async void DirectoryListener(string directoryForScan, string searchPattern, string moveToThisDirectory)
+        private bool _stopped;
+
+        public void DirectoryListener(List<ScannerUnit> units)
         {
-            while (true)
+            _stopped = false;
+            if (units == null)
+                return;
+
+            foreach (var scannerUnit in units) 
+                ListenerUnit(scannerUnit);
+        }
+        private async void ListenerUnit(ScannerUnit scannerUnit)
+        {
+            while (!_stopped)
             {
-                var directoryInfo = new DirectoryInfo(directoryForScan);
+                var directoryInfo = new DirectoryInfo(scannerUnit.DirectoryForScan);
 
                 if (directoryInfo.Exists)
                 {
-                    foreach (var fileInfo in directoryInfo.GetFiles(searchPattern))
+                    foreach (var fileInfo in directoryInfo.GetFiles(scannerUnit.SearchPattern))
                     {
                         var oldFileName = fileInfo.Name;
                         var newFileName = oldFileName;
 
+                        string moveToThisDirectory = scannerUnit.DirectoryForTransfer;
                         if (DirectoryExistFile(moveToThisDirectory, oldFileName))
                         {
                             var oldFileNameWithoutExt =
@@ -40,8 +53,13 @@ namespace DirectoryTransfer
                     }
                 }
 
-                await Task.Delay(500);
+                await Task.Delay(1000);
             }
+        }
+
+        public void Stop()
+        {
+            _stopped = true;
         }
 
         private static bool DirectoryExistFile(string targetDirectory, string fileName)

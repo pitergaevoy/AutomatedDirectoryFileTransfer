@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text.Json;
 
@@ -7,9 +8,7 @@ namespace DirectoryTransfer
     [DataContract]
     public class Configuration
     {
-        [DataMember] public string DirectoryForScan { get; set; }
-        [DataMember] public string SearchPattern { get; set; }
-        [DataMember] public string DirectoryForTransfer { get; set; }
+        [DataMember] public List<ScannerUnit> Units { get; set; } = new List<ScannerUnit>();
 
         public static Configuration GetConfiguration(string path)
         {
@@ -28,6 +27,13 @@ namespace DirectoryTransfer
 
             File.WriteAllText(path, jsonString);
         }
+    }
 
+    [DataContract]
+    public class ScannerUnit
+    {
+        [DataMember] public string DirectoryForScan { get; set; }
+        [DataMember] public string SearchPattern { get; set; }
+        [DataMember] public string DirectoryForTransfer { get; set; }
     }
 }
