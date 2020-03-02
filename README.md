@@ -1,6 +1,6 @@
 # AutomatedDirectoryFileTransfer
-ARE YOU TIRED:<br>
-<img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="60">
+<img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><br>
+ARE YOU TIRED:
 - Of transfering new maps for OSU from "Downloads" to "Songs" directory everytime host changes the map?
 - ...
 - ... actually thats all I desire this programm to do.
