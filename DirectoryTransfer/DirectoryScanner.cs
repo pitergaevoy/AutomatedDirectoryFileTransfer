@@ -1,9 +1,10 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Threading.Tasks;
 
-namespace DirectoryAutoFileMover
+namespace DirectoryTransfer
 {
-    internal class DirectoryScanner
+    public class DirectoryScanner
     {
         public static async void DirectoryListener(string directoryForScan, string searchPattern, string moveToThisDirectory)
         {
@@ -28,7 +29,14 @@ namespace DirectoryAutoFileMover
 
                         var destFileName = Path.Combine(moveToThisDirectory, newFileName);
 
-                        fileInfo.MoveTo(destFileName, true);
+                        try
+                        {
+                            fileInfo.MoveTo(destFileName, true);
+                        }
+                        catch (Exception e)
+                        {
+                            throw e;
+                        }
                     }
                 }
 

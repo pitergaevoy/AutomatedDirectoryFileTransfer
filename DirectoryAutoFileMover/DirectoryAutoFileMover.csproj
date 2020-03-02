@@ -6,9 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="myConfig.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <ProjectReference Include="..\DirectoryTransfer\DirectoryTransfer.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,30 +1,40 @@
 ﻿using System;
+using System.Configuration;
 using System.IO;
-using DirectoryTransfer;
+using System.Windows;
 
-namespace DirectoryAutoFileMover
+namespace DirectoryTransfer.UI
 {
-    internal class Program
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
     {
-        private static void Main(string[] args)
+        public MainWindow()
+        {
+            InitializeComponent();
+
+            RunListenDir();
+        }
+
+        private void RunListenDir()
         {
             const string configPath = "myConfig.json";
 
-            var configuration = new Configuration
+            var configuration = new DirectoryTransfer.Configuration
             {
                 DirectoryForScan = @"C:\Users\gaevoy\Downloads",
                 DirectoryForTransfer = @"C:\Users\gaevoy\Desktop\CFG",
                 SearchPattern = "*.cfg"
             };
 
-            if (File.Exists(configPath)) 
+            if (File.Exists(configPath))
                 configuration = Configuration.GetConfiguration(configPath);
 
             Configuration.SaveConfiguration(configuration, configPath);
 
             DirectoryScanner.DirectoryListener(configuration.DirectoryForScan, configuration.SearchPattern, configuration.DirectoryForTransfer);
 
-            Console.ReadKey();
         }
 
     }

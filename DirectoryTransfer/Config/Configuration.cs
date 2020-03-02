@@ -2,7 +2,7 @@
 using System.Runtime.Serialization;
 using System.Text.Json;
 
-namespace DirectoryAutoFileMover
+namespace DirectoryTransfer
 {
     [DataContract]
     public class Configuration
