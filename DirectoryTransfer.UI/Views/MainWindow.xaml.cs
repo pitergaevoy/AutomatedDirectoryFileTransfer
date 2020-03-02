@@ -19,7 +19,11 @@ namespace DirectoryTransfer.UI
 
         private void OpenMenuItemClicked(object sender, RoutedEventArgs e)
         {
-            var settingsView = new Settings(_mainApp.Configuration);
+            var settingsView = new SettingsView(_mainApp.Configuration)
+            {
+                Owner = this
+            };
+
             settingsView.ShowDialog();
 
             var configuration = settingsView.ViewModel.Configuration;
