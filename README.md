@@ -1,6 +1,6 @@
 # AutomatedDirectoryFileTransfer
-ARE YOU TIRED:
-<img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="70">
+ARE YOU TIRED:<br>
+<img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="60">
 - Of transfering new maps for OSU from "Downloads" to "Songs" directory everytime host changes the map?
 - ...
 - ... actually thats all I desire this programm to do.
