@@ -13,6 +13,3 @@ Transfers them where-ever YOU want! <br>
 AND GUESS WHAT? 
 YOU don't have to do shit.
 
-
-**Edit JSON file and run the script IT'S THAT EASY**
-
