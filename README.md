@@ -13,3 +13,10 @@ Transfers them where-ever YOU want! <br>
 AND GUESS WHAT? 
 YOU don't have to do shit.
 
+Setup:
+0. Launch and right-click LUL.icon in system tray
+1. Click "Open Settings"
+2. Choose directory where fileas at
+3. Specify type of files that needs to be transfered
+4. Choose directory where files needs to be moved 
+5. DONE
