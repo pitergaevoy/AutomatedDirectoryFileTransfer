@@ -1,12 +1,10 @@
-﻿using System.Windows;
-
-namespace DirectoryTransfer.UI
+﻿namespace DirectoryTransfer.UI
 {
-    public partial class Settings : Window
+    public partial class SettingsView 
     {
         public SettingsViewModel ViewModel { get; }
 
-        public Settings(Configuration configuration)
+        public SettingsView(Configuration configuration)
         {
             InitializeComponent();
 
