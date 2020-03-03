@@ -1,18 +1,24 @@
-﻿using System.Collections.ObjectModel;
+﻿using Prism.Commands;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Runtime.Serialization;
+using System.Windows;
 using System.Windows.Input;
-using Prism.Commands;
 
 namespace DirectoryTransfer.UI
 {
     public class SettingsViewModel : BaseViewModel
     {
-        public Configuration Configuration { get; set; }
+        #region Public Properties
 
-        public ObservableCollection<ScannerUnitViewModel> ScannerUnits { get; set; }
+        public Configuration Configuration { get; }
+
+        public ObservableCollection<ScannerUnitViewModel> ScannerUnits { get; }
 
         public ScannerUnitViewModel SelectedUnit { get; set; }
+
+        #endregion
+        
+        #region Commands
 
         public ICommand SaveCommand { get; }
 
@@ -20,6 +26,9 @@ namespace DirectoryTransfer.UI
 
         public DelegateCommand RemoveRowCommand { get; }
 
+        #endregion
+
+        #region Constructor
 
         public SettingsViewModel(Configuration configuration)
         {
@@ -31,15 +40,19 @@ namespace DirectoryTransfer.UI
 
             PropertyChanged += SettingsViewModel_PropertyChanged;
 
-            ScannerUnits = new ObservableCollection<ScannerUnitViewModel>(configuration.Units.Select(unit => new ScannerUnitViewModel(unit)));
+            ScannerUnits =
+                new ObservableCollection<ScannerUnitViewModel>(
+                    configuration.Units.Select(unit => new ScannerUnitViewModel(unit)));
         }
+
+        #endregion
+
+        #region Private Methods
 
         private void SettingsViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(SelectedUnit))
-            {
+            if (e.PropertyName == nameof(SelectedUnit)) 
                 RemoveRowCommand.RaiseCanExecuteChanged();
-            }
         }
 
         private bool CanRemoveRow()
@@ -68,32 +81,11 @@ namespace DirectoryTransfer.UI
         private void SaveSettings()
         {
             Configuration.Units = ScannerUnits.Select(vm => vm.ToUnit()).ToList();
-        }
-    }
 
-
-    public class ScannerUnitViewModel : BaseViewModel
-    {
-        public ScannerUnitViewModel(ScannerUnit unit)
-        {
-            DirectoryForScan = unit.DirectoryForScan;
-            SearchPattern = unit.SearchPattern;
-            DirectoryForTransfer = unit.DirectoryForTransfer;
+            foreach (Window window in Application.Current.Windows) 
+                window.Close();
         }
 
-        [DataMember] public string DirectoryForScan { get; set; }
-        [DataMember] public string SearchPattern { get; set; }
-        [DataMember] public string DirectoryForTransfer { get; set; }
-
-        public ScannerUnit ToUnit()
-        {
-            return new ScannerUnit
-            {
-                DirectoryForScan = DirectoryForScan,
-                SearchPattern = SearchPattern,
-                DirectoryForTransfer = DirectoryForTransfer,
-
-            };
-        }
+        #endregion
     }
 }

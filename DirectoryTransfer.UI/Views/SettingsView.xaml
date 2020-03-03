@@ -9,15 +9,15 @@
 
                  WindowStartupLocation="CenterScreen"
 
-
-                 WindowStyle="ToolWindow"
-
+                 ShowMinButton="False"
+                
                  Title="Transfer Settings"
+
                  TitleCharacterCasing="Normal"
                  Height="450" Width="800">
 
     <Grid Margin="5">
-
+<!-- PRIVET EGOR! -->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -35,7 +35,7 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Grid>
-                                <ui:SelectDirectoryTextBox Text="{Binding DirectoryForScan, Mode=TwoWay}" />
+                                <ui:SelectDirectoryTextBox Text="{Binding DirectoryForScan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                             </Grid>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
@@ -43,14 +43,14 @@
                 </DataGridTemplateColumn>
 
                 <DataGridTextColumn Header="File extention"
-                                    Binding="{Binding SearchPattern, Mode=TwoWay}" />
+                                    Binding="{Binding SearchPattern, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
 
                 <DataGridTemplateColumn Header="Where To">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Grid>
-                                <ui:SelectDirectoryTextBox Text="{Binding DirectoryForTransfer, Mode=TwoWay}" />
+                                <ui:SelectDirectoryTextBox Text="{Binding DirectoryForTransfer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                             </Grid>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
