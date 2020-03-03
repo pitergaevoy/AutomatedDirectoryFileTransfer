@@ -15,28 +15,21 @@ AND GUESS WHAT?
 YOU don't have to do shit.
 
 SETUP: <br>
-<ul style="list-style-type:square;">
-     <li>-1. Launch (DirectoryTransfer.UI.exe) <br>
-     <img src="https://github.com/pitergaevoy/AutomatedDirectoryFileTransfer/blob/master/GuideFolder/executable-launch.png" width="250"/>
-     </li> 
-     <li>0. Right-click LUL-icon (it's really not a virus) in system tray and Click "Open Settings"<br>
-     <img src="https://github.com/pitergaevoy/AutomatedDirectoryFileTransfer/blob/master/GuideFolder/system-tray.png" width="250"/>
-     </li>
-     <li>1 Click "Add row"<br>
-     <img src="https://github.com/pitergaevoy/AutomatedDirectoryFileTransfer/blob/master/GuideFolder/add-row.png" width="250"/>
-     </li>
-     <li>2 Choose directory where fileas at<br>
-     <img src="https://github.com/pitergaevoy/AutomatedDirectoryFileTransfer/blob/master/GuideFolder/where-from.png" width="250"/>
-     </li>
-     <li>3. Specify type of files that needs to be transfered<br>
-     <img src="https://github.com/pitergaevoy/AutomatedDirectoryFileTransfer/blob/master/GuideFolder/extention.png" width="250"/>
-     </li>
-     <li>4. Choose directory where files needs to be moved<br>
-     <img src="https://github.com/pitergaevoy/AutomatedDirectoryFileTransfer/blob/master/GuideFolder/where%20to.png" width="250"/>
-     </li>
-     <li>4.1 SMASH THAT "SAVE" BUTTON<br>
-     <img src="https://github.com/pitergaevoy/AutomatedDirectoryFileTransfer/blob/master/GuideFolder/save.png" width="250"/>
-     </li>
-     <li>5. DONE <img src="https://static-cdn.jtvnw.net/emoticons/v1/64138/3.0" width="50"/></li>
-</ul> <br>
+
+   -1 Launch (DirectoryTransfer.UI.exe) <br>
+   <img src="https://github.com/pitergaevoy/AutomatedDirectoryFileTransfer/blob/master/GuideFolder/executable-launch.png" width="250"/><br>
+   0 Right-click LUL-icon (it's really not a virus) in system tray and Click "Open Settings"<br>
+   <img src="https://github.com/pitergaevoy/AutomatedDirectoryFileTransfer/blob/master/GuideFolder/system-tray.png" width="250"/><br>
+   1 Click "Add row"<br>
+   <img src="https://github.com/pitergaevoy/AutomatedDirectoryFileTransfer/blob/master/GuideFolder/add-row.png" width="250"/><br>
+   2 Choose directory where fileas at<br>
+   <img src="https://github.com/pitergaevoy/AutomatedDirectoryFileTransfer/blob/master/GuideFolder/where-from.png" width="250"/><br>
+   3. Specify type of files that needs to be transfered<br>
+   <img src="https://github.com/pitergaevoy/AutomatedDirectoryFileTransfer/blob/master/GuideFolder/extention.png" width="250"/><br>
+   4. Choose directory where files needs to be moved<br>
+   <img src="https://github.com/pitergaevoy/AutomatedDirectoryFileTransfer/blob/master/GuideFolder/where%20to.png" width="250"/><br>
+   4.1 SMASH THAT "SAVE" BUTTON<br>
+   <img src="https://github.com/pitergaevoy/AutomatedDirectoryFileTransfer/blob/master/GuideFolder/save.png" width="250"/><br>
+   5. DONE <img src="https://static-cdn.jtvnw.net/emoticons/v1/64138/3.0" width="50"/></li>
+<br>
 *If you've changed settings and don't want to save them, just close the window. It won't register them.*
