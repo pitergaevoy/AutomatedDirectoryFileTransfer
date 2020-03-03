@@ -5,12 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DirectoryTransfer.UI"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
-             
-             x:Name="Control">
+             d:DesignHeight="450" d:DesignWidth="800">
 
-    <Grid>
-        <TextBlock Text="{Binding Text, ElementName=Control, Mode=TwoWay}"
-                   MouseLeftButtonDown="UIElement_OnMouseLeftButtonDown"/>
-    </Grid>
+    <UserControl.Template>
+        <ControlTemplate TargetType="{x:Type local:SelectDirectoryTextBox}">
+            <TextBlock Text="{TemplateBinding Text}"
+                       MouseLeftButtonDown="UIElement_OnMouseLeftButtonDown"/>
+        </ControlTemplate>
+        
+    </UserControl.Template>
 </UserControl>
