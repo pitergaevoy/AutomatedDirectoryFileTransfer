@@ -16,13 +16,27 @@ YOU don't have to do shit.
 
 Setup: <br>
 
-<li>-1. Launch (DirectoryTransfer.UI.exe) ![](GuideFolder/executable-launch.png) </li> 
-<li> <img /> </li>
-<li>0. Right-click LUL-icon (it's really not a virus) in system tray.</li>
-<li>1. Click "Open Settings"</li>
-<li>1.1 Click "Add row"</li>
-<li>2 Choose directory where fileas at</li>
-<li>3. Specify type of files that needs to be transfered</li>
-<li>4. Choose directory where files needs to be moved</li>
-<li>4.1 SMASH THAT "SAVE" BUTTON </li>
+<li>-1. Launch (DirectoryTransfer.UI.exe)
+   <li><img src="https://github.com/pitergaevoy/AutomatedDirectoryFileTransfer/blob/master/GuideFolder/executable-launch.png"/></li> 
+</li> 
+<li>0. Right-click LUL-icon (it's really not a virus) in system tray and Click "Open Settings"
+<li><img src="https://github.com/pitergaevoy/AutomatedDirectoryFileTransfer/blob/master/GuideFolder/system-tray.png"/></li>
+</li>
+<li>1 Click "Add row"
+<li> <img src="https://github.com/pitergaevoy/AutomatedDirectoryFileTransfer/blob/master/GuideFolder/add-row.png"/></li>
+</li>
+<li>2 Choose directory where fileas at
+<li> <img src="https://github.com/pitergaevoy/AutomatedDirectoryFileTransfer/blob/master/GuideFolder/where-from.png"/></li>
+</li>
+<li>3. Specify type of files that needs to be transfered
+<li> <img src="https://github.com/pitergaevoy/AutomatedDirectoryFileTransfer/blob/master/GuideFolder/extention.png"/></li>
+</li>
+<li>4. Choose directory where files needs to be moved
+<li> <img src="https://github.com/pitergaevoy/AutomatedDirectoryFileTransfer/blob/master/GuideFolder/where%20to.png"/></li>
+</li>
+<li>4.1 SMASH THAT "SAVE" BUTTON
+<li> <img src="https://github.com/pitergaevoy/AutomatedDirectoryFileTransfer/blob/master/GuideFolder/save.png"/></li>
+</li>
 <li>5. DONE <img src="https://static-cdn.jtvnw.net/emoticons/v1/64138/3.0" width="50"/></li>
+<br>
+*If you've changed settings and don't want to save them, just close the window. It won't register them.*
