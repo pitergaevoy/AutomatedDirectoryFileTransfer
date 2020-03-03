@@ -2,7 +2,7 @@
 <img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><img src="https://static-cdn.jtvnw.net/emoticons/v1/58765/3.0" width="50"><br>
 ARE YOU TIRED OF:
 - Transfering new maps for OSU from "Downloads" to "Songs" directory everytime host changes the map?
-- Dragging downloaded .png's into a project folder fou your phonoshop collage?
+- Dragging download .pngs into a project folder for your photoshop collage?
 - Manually transfering pictures/footage from your SD-card into HardDrive on your computer?
 - ...actually that's all I desire this program to do, BUT USER-CASES ARE ENDLESS LIKE THE VOID OF THOUGHTS ABOUT YOUR EXISTENCE
 
