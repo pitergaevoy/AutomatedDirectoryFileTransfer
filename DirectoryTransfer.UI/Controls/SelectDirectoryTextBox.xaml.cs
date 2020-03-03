@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Input;
 
@@ -31,6 +30,7 @@ namespace DirectoryTransfer.UI
                 };
 
                 var res = openDirectoryDialog.ShowDialog();
+
                 if (res != DialogResult.OK)
                     return;
 
