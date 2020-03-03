@@ -15,7 +15,7 @@ YOU don't have to do shit.
 
 Setup: <br>
 
-0. Launch and right-click LUL.icon in system tray
+0. Launch (DirectoryTransfer.UI.exe) and right-click LUL-icon (it's really not a virus) in system tray
 1. Click "Open Settings"
 2. Choose directory where fileas at
 3. Specify type of files that needs to be transfered
