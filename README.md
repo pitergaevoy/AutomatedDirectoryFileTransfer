@@ -16,8 +16,8 @@ YOU don't have to do shit.
 
 Setup: <br>
 
-<li>-1. Launch (DirectoryTransfer.UI.exe)  </li> 
-<li> <img src="![](GuideFolder/executable-launch.png)"/> </li>
+<li>-1. Launch (DirectoryTransfer.UI.exe) ![](GuideFolder/executable-launch.png) </li> 
+<li> <img /> </li>
 <li>0. Right-click LUL-icon (it's really not a virus) in system tray.</li>
 <li>1. Click "Open Settings"</li>
 <li>1.1 Click "Add row"</li>
