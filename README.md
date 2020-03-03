@@ -16,10 +16,12 @@ YOU don't have to do shit.
 
 Setup: <br>
 
--1. Launch (DirectoryTransfer.UI.exe) 
-0. Right-click LUL-icon (it's really not a virus) in system tray.
-1. Click "Open Settings"
-2. Choose directory where fileas at
-3. Specify type of files that needs to be transfered
-4. Choose directory where files needs to be moved 
-5. DONE
+<li>-1. Launch (DirectoryTransfer.UI.exe) </li>
+<li>0. Right-click LUL-icon (it's really not a virus) in system tray.</li>
+<li>1. Click "Open Settings"</li>
+<li>1.1 Click "Add row"</li>
+<li>2 Choose directory where fileas at</li>
+<li>3. Specify type of files that needs to be transfered</li>
+<li>4. Choose directory where files needs to be moved</li>
+<li>4.1 SMASH THAT "SAVE" BUTTON </li>
+<li>5. DONE <img src="https://static-cdn.jtvnw.net/emoticons/v1/64138/3.0" width="50"/></li>
