@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace DirectoryTransfer.UI
@@ -7,12 +8,13 @@ namespace DirectoryTransfer.UI
     {
         public Configuration Configuration { get; private set; }
 
+        public SettingsConfig Settings { get; private set; }
+
         private readonly DirectoryScanner _scanner;
         private const string ConfigPath = "myConfig.json";
+
         public MainApp()
         {
-          
-
             Configuration = new Configuration
             {
                 Units = new List<ScannerUnit>
@@ -36,7 +38,14 @@ namespace DirectoryTransfer.UI
 
         public void StartListen()
         {
-            _scanner.DirectoryListener(Configuration.Units);
+            try
+            {
+                _scanner.DirectoryListener(Configuration.Units);
+            }
+            catch (Exception e)
+            {
+                // ignored
+            }
         }
 
         public void Stop()
@@ -51,5 +60,9 @@ namespace DirectoryTransfer.UI
             Configuration.SaveConfiguration(configuration, ConfigPath);
         }
 
+        public void ApplySettings(SettingsConfig settingsConfig)
+        {
+            
+        }
     }
 }
