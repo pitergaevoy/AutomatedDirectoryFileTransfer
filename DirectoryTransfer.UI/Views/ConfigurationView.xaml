@@ -10,13 +10,119 @@
                  WindowStartupLocation="CenterScreen"
 
                  ShowMinButton="False"
-                
+
                  Title="Config Settings"
 
                  TitleCharacterCasing="Normal"
                  Height="720" Width="1080">
 
-    <Grid Margin="5">
+    <mah:MetroWindow.Resources>
+        <DataTemplate x:Key="HeaderTemplate">
+            <TextBlock Text="{Binding}" TextWrapping="Wrap"
+                       TextAlignment="Center" />
+        </DataTemplate>
+
+        <Style TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="ContentTemplate" Value="{StaticResource HeaderTemplate}" />
+            <Setter Property="Background" Value="{DynamicResource MahApps.Brushes.ThemeBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource MahApps.Brushes.Gray5}" />
+            <Setter Property="BorderThickness" Value="0 0 0 3" />
+            <Setter Property="mah:ControlsHelper.ContentCharacterCasing" Value="Normal" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Foreground" Value="{DynamicResource MahApps.Brushes.ThemeForeground}" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="MinHeight" Value="25" />
+            <Setter Property="MinWidth" Value="0" />
+            <Setter Property="Padding"
+                    Value="{Binding Path=(mah:DataGridHelper.ColumnHeaderPadding), Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Border x:Name="BackgroundBorder"
+                                    Grid.ColumnSpan="2"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}" />
+
+                            <mah:ContentControlEx x:Name="HeaderContent"
+
+                                                  Grid.Column="0"
+                                                  Margin="{TemplateBinding BorderThickness}"
+                                                  Padding="{TemplateBinding Padding}"
+                                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                  Content="{TemplateBinding Content}"
+                                                  ContentCharacterCasing="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mah:ControlsHelper.ContentCharacterCasing)}"
+                                                  ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                  ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+
+                            <Path x:Name="SortArrow"
+                                  Grid.Column="1"
+                                  Width="8"
+                                  Height="10"
+                                  Margin="0 0 8 2"
+                                  VerticalAlignment="Center"
+                                  Fill="{DynamicResource MahApps.Brushes.Gray2}"
+                                  RenderTransformOrigin="0.5,0.5"
+                                  Stretch="Fill"
+                                  Visibility="Collapsed" />
+
+                            <Thumb x:Name="PART_LeftHeaderGripper"
+                                   HorizontalAlignment="Left"
+                                   Background="Transparent"
+                                   Style="{StaticResource MahApps.Styles.Thumb.ColumnHeaderGripper}" />
+
+                            <Thumb x:Name="PART_RightHeaderGripper"
+                                   Grid.Column="1"
+                                   HorizontalAlignment="Right"
+                                   Style="{StaticResource MahApps.Styles.Thumb.ColumnHeaderGripper}" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="SortDirection" Value="Ascending">
+                                <Setter TargetName="SortArrow" Property="Data"
+                                        Value="F1 M 34,57L 42,57L 42,32.25L 52,42.25L 52,31.75L 38,17.75L 24,31.75L 24,42.25L 34,32.25L 34,57 Z " />
+                                <Setter TargetName="SortArrow" Property="Visibility" Value="Visible" />
+                            </Trigger>
+                            <Trigger Property="SortDirection" Value="Descending">
+                                <Setter TargetName="SortArrow" Property="Data"
+                                        Value="F1 M 42,19.0002L 34,19.0002L 34,43.7502L 24,33.7502L 24,44.2502L 38,58.2502L 52,44.2502L 52,33.7502L 42,43.7502L 42,19.0002 Z " />
+                                <Setter TargetName="SortArrow" Property="Margin" Value="0 0 8 0" />
+                                <Setter TargetName="SortArrow" Property="Visibility" Value="Visible" />
+                            </Trigger>
+                            <Trigger Property="DisplayIndex" Value="0">
+                                <Setter TargetName="PART_LeftHeaderGripper" Property="Visibility" Value="Collapsed" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsMouseOver" Value="True" />
+                        <Condition Property="SortDirection" Value="{x:Null}" />
+                    </MultiTrigger.Conditions>
+                    <Setter Property="Background" Value="{DynamicResource MahApps.Brushes.Gray8}" />
+                </MultiTrigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </mah:MetroWindow.Resources>
+
+    <Grid Margin="10">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -35,7 +141,8 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Grid>
-                                <ui:SelectDirectoryTextBox Text="{Binding DirectoryForScan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                <ui:SelectDirectoryTextBox
+                                    Text="{Binding DirectoryForScan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                             </Grid>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
@@ -50,7 +157,8 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Grid>
-                                <ui:SelectDirectoryTextBox Text="{Binding DirectoryForTransfer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                <ui:SelectDirectoryTextBox
+                                    Text="{Binding DirectoryForTransfer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                             </Grid>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
@@ -66,11 +174,19 @@
                     Command="{Binding RemoveRowCommand}" />
         </ToolBar>
 
-        <Button Grid.Row="3"
-                Content="Save"
-                VerticalAlignment="Bottom"
-                HorizontalAlignment="Stretch"
-                Command="{Binding SaveCommand}" />
+        <StackPanel Grid.Row="3"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+
+            <Button Content="Cancel"
+                    Margin="0 0 5 0"
+                    Command="{Binding CancelCommand}"
+                    Style="{StaticResource MahApps.Styles.Button.Dialogs}"/>
+
+            <Button Content="Save"
+                    Command="{Binding SaveCommand}" 
+                    Style="{StaticResource MahApps.Styles.Button.Dialogs}"/>
+        </StackPanel>
 
     </Grid>
 </mah:MetroWindow>

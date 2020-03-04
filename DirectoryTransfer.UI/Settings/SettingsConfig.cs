@@ -7,6 +7,8 @@ namespace DirectoryTransfer.UI
     [DataContract]
     public class SettingsConfig
     {
+        [DataMember] public bool IsRunWhenComputerStarts { get; set; }
+
         public static SettingsConfig GetSettings(string path)
         {
             var jsonString = File.ReadAllText(path);

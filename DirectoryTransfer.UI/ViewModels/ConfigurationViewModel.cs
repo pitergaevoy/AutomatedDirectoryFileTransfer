@@ -1,7 +1,6 @@
 ﻿using Prism.Commands;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Windows;
 using System.Windows.Input;
 
 namespace DirectoryTransfer.UI
@@ -17,12 +16,14 @@ namespace DirectoryTransfer.UI
         public ScannerUnitViewModel SelectedUnit { get; set; }
 
         #endregion
-        
+
         #region Commands
 
         public ICommand SaveCommand { get; }
 
         public ICommand AddRowCommand { get; }
+
+        public ICommand CancelCommand { get; }
 
         public DelegateCommand RemoveRowCommand { get; }
 
@@ -35,6 +36,7 @@ namespace DirectoryTransfer.UI
             Configuration = configuration;
 
             SaveCommand = new DelegateCommand(SaveSettings);
+            CancelCommand = new DelegateCommand(Cancel);
             AddRowCommand = new DelegateCommand(AddRow);
             RemoveRowCommand = new DelegateCommand(RemoveRow, CanRemoveRow);
 
@@ -51,7 +53,7 @@ namespace DirectoryTransfer.UI
 
         private void SettingsViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(SelectedUnit)) 
+            if (e.PropertyName == nameof(SelectedUnit))
                 RemoveRowCommand.RaiseCanExecuteChanged();
         }
 
@@ -78,12 +80,16 @@ namespace DirectoryTransfer.UI
             }));
         }
 
+        private void Cancel()
+        {
+            MainExtensions.Close();
+        }
+
         private void SaveSettings()
         {
             Configuration.Units = ScannerUnits.Select(vm => vm.ToUnit()).ToList();
 
-            foreach (Window window in Application.Current.Windows) 
-                window.Close();
+            Cancel();
         }
 
         #endregion

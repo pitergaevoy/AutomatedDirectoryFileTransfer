@@ -14,7 +14,44 @@
 
                  Height="720" Width="1080">
 
-    <Grid>
-     
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid  Grid.Row="1" 
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Run when computer starts"
+                       Margin="5"
+                       TextAlignment="Center"
+                       VerticalAlignment="Center" />
+
+            <CheckBox Grid.Column="1"
+                      IsChecked="{Binding IsRunWhenComputerStarts}" />
+        </Grid>
+
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+
+            <Button Content="Cancel"
+                    Margin="0 0 5 0"
+                    Command="{Binding CancelCommand}"
+                    Style="{StaticResource MahApps.Styles.Button.Dialogs}"/>
+
+            <Button Content="Save"
+                    Command="{Binding SaveCommand}" 
+                    Style="{StaticResource MahApps.Styles.Button.Dialogs}"/>
+        </StackPanel>
+
     </Grid>
 </mah:MetroWindow>
