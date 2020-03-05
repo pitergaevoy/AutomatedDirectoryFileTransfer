@@ -1,42 +1,70 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace DirectoryTransfer.UI
 {
     public class MainApp
     {
-        public Configuration Configuration { get; private set; }
+        private const string ConfigPath = "myConfig.json";
+        private const string SettingsPath = "mySettings.json";
+
 
         private readonly DirectoryScanner _scanner;
-        private const string ConfigPath = "myConfig.json";
+
+        #region Public Properties
+
+        public Configuration Configuration { get; private set; }
+
+        public SettingsConfig Settings { get; private set; }
+
+        #endregion
+
+        #region Constructor
+
         public MainApp()
         {
-          
-
             Configuration = new Configuration
             {
                 Units = new List<ScannerUnit>
                 {
                     new ScannerUnit
                     {
-                        DirectoryForScan = @"C:\Users\gaevoy\Downloads",
-                        DirectoryForTransfer = @"C:\Users\gaevoy\Desktop\CFG",
-                        SearchPattern = "*.cfg"
+                        DirectoryForScan = @"C:\",
+                        DirectoryForTransfer = @"C:\Users\",
+                        SearchPattern = "*.extension"
                     }
                 }
             };
 
+            Settings = new SettingsConfig();
+
+            if (File.Exists(SettingsPath))
+                Settings = SettingsConfig.GetSettings(SettingsPath);
+
             if (File.Exists(ConfigPath))
                 Configuration = Configuration.GetConfiguration(ConfigPath);
 
+            SettingsConfig.SaveSettings(Settings, SettingsPath);
             Configuration.SaveConfiguration(Configuration, ConfigPath);
+
+            MainExtensions.SetIsRunWhenStartValue(Settings.IsRunWhenComputerStarts);
 
             _scanner = new DirectoryScanner();
         }
 
+        #endregion
+        
         public void StartListen()
         {
-            _scanner.DirectoryListener(Configuration.Units);
+            try
+            {
+                _scanner.DirectoryListener(Configuration.Units);
+            }
+            catch (Exception e)
+            {
+                // ignored
+            }
         }
 
         public void Stop()
@@ -51,5 +79,13 @@ namespace DirectoryTransfer.UI
             Configuration.SaveConfiguration(configuration, ConfigPath);
         }
 
+        public void ApplySettings(SettingsConfig settingsConfig)
+        {
+            Settings = settingsConfig;
+
+            SettingsConfig.SaveSettings(settingsConfig, SettingsPath);
+
+            MainExtensions.SetIsRunWhenStartValue(settingsConfig.IsRunWhenComputerStarts);
+        }
     }
 }

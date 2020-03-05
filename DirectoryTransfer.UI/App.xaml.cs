@@ -6,10 +6,7 @@ using Prism.Commands;
 
 namespace DirectoryTransfer.UI
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    public partial class App : Application
+    public partial class App
     {
         private TaskbarIcon _taskBarIcon;
         private MainApp _mainApp;
@@ -26,16 +23,25 @@ namespace DirectoryTransfer.UI
 
                 _taskBarIcon.ContextMenu = new ContextMenu
                 {
-                    ItemsSource = new ObservableCollection<MenuItem>
+                    ItemsSource = new ObservableCollection<Control>
                     {
                         new MenuItem
                         {
-                            Header = "Open settings",
+                            Header = "Settings",
                             Command = new DelegateCommand(OpenSettings)
                         },
+
                         new MenuItem
                         {
-                            Header = "Close program",
+                            Header = "Configuration",
+                            Command = new DelegateCommand(OpenConfiguration)
+                        },
+
+                        new Separator(),
+
+                        new MenuItem
+                        {
+                            Header = "Quit Directory Transfer",
                             Command = new DelegateCommand(() => Current.Shutdown())
                         },
                     }
@@ -45,19 +51,28 @@ namespace DirectoryTransfer.UI
 
                 ShutdownMode = ShutdownMode.OnExplicitShutdown;
             }
-            
+
             base.OnStartup(e);
         }
 
         private void OpenSettings()
         {
-            var settingsView = new SettingsView(_mainApp.Configuration)
-            {
-            };
+           var settingsView = new SettingsView(_mainApp.Settings);
 
-            settingsView.ShowDialog();
+           settingsView.ShowDialog();
 
-            var configuration = settingsView.ViewModel.Configuration;
+           var settingsConfig = settingsView.ViewModel.Settings;
+
+           _mainApp.ApplySettings(settingsConfig);
+        }
+        
+        private void OpenConfiguration()
+        {
+            var configurationView = new ConfigurationView(_mainApp.Configuration);
+
+            configurationView.ShowDialog();
+
+            var configuration = configurationView.ViewModel.Configuration;
 
             _mainApp.Stop();
             _mainApp.SetParams(configuration);

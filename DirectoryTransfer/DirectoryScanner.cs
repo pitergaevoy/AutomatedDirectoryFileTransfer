@@ -15,9 +15,10 @@ namespace DirectoryTransfer
             if (units == null)
                 return;
 
-            foreach (var scannerUnit in units) 
+            foreach (var scannerUnit in units)
                 ListenerUnit(scannerUnit);
         }
+
         private async void ListenerUnit(ScannerUnit scannerUnit)
         {
             while (!_stopped)
@@ -48,7 +49,7 @@ namespace DirectoryTransfer
                         }
                         catch (Exception e)
                         {
-                            throw e;
+                            // ignored
                         }
                     }
                 }

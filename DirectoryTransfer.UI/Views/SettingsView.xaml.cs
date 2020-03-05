@@ -1,14 +1,14 @@
 ﻿namespace DirectoryTransfer.UI
 {
-    public partial class SettingsView 
+    public partial class SettingsView
     {
         public SettingsViewModel ViewModel { get; }
 
-        public SettingsView(Configuration configuration)
+        public SettingsView(SettingsConfig settingsConfig)
         {
             InitializeComponent();
 
-            ViewModel = new SettingsViewModel(configuration);
+            ViewModel = new SettingsViewModel(settingsConfig);
             DataContext = ViewModel;
         }
     }
